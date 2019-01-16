@@ -1,0 +1,18 @@
+.register-block{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    padding-top: 50px;
+    display: flex;
+    align-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.register-input-full-width{
+    width: 100%;
+}
+
+h3{
+    text-align: center;
+}

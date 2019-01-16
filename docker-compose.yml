@@ -1,0 +1,41 @@
+version: '3'
+services:
+  mysql-docker:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    container_name: mysql-docker
+    network_mode: host
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: moviedb
+      MYSQL_USER: app_root
+      MYSQL_PASSWORD: root123
+  
+  backend:
+    image: ashah2012/moviecruiser:spring-image
+    restart: always
+    network_mode: host
+    container_name: spring-docker-backend
+    depends_on:
+      - mysql-docker
+    ports:
+      - 8082:8082
+   
+  auth:
+    image: ashah2012/moviecruiser:auth-service
+    restart: always
+    network_mode: host
+    container_name: spring-docker-auth-service
+    depends_on:
+      - mysql-docker
+    ports:
+      - 8089:8089 
+   
+  angular:
+    image: ashah2012/moviecruiser:angular-image
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 4200:4200
+    
