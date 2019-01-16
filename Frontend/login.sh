@@ -1,1 +1,0 @@
-sudo docker login --username=ashah2012 --password=Laughter1
